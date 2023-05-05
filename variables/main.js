@@ -33,10 +33,12 @@ switch (age){
 }*/
 
 //Q3
-let num = prompt("Enter the number");
+/*let num = prompt("Enter the number");
 if(num%2==0 && num%3==0){
     console.log('yes');
 }
 else{
     console.log('no');
-}
+}*/
+
+
