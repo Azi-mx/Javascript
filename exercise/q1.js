@@ -14,5 +14,5 @@ let text = "<ul>";
 for(i=0;i<flen;i++){
     text += "<li>" + fruits[i] + "</li>"
 }
-text += "</ul"
+text += "</ul>"
 document.getElementById('demo').innerHTML= text;
