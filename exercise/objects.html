@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = {
+   //properties         
+            firstName:"Yahoo",
+            lname:"baba",
+            age:25,
+            email:"bagsariyaa@gmail.com",
+    //arrays in object
+            favMovies:['dhoom',"sholey","Hum"],
+    //Method in object
+            salary: function(){
+                return 25000;
+            },
+            fullname:function(){
+                return this.firstName+" "+ this.lname;
+            },
+    //object in a object
+            living: {
+                'city':'ahmd',
+                'country':'india'
+            }
+        }
+        // document.write(a[firstName]);
+        console.log(a);
+        document.write(a.favMovies[0]);
+        document.write(a.salary());
+        document.write(a.fullname()+ "<br>");
+        document.write(a.living.city);
+
+    </script>
+</body>
+</html>
