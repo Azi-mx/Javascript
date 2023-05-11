@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+
+// Multi dimentional array
+
+        let arr = [
+            ["harry","18","Male","B.com"],
+            ["Barry","18","Male","B.com"],
+            ["sunny","18","Male","Mcom"],
+        ];
+        document.write(arr.length)
+    document.write("<table border='1px'>");
+        for(let a =0;a<arr.length;a++){
+document.write("<tr>");
+            for(let b=0;b<arr[a].length;b++){
+            document.write("<td>"+arr[a][b]+"<td>");
+            }
+document.write("</tr>");
+            document.write("<br>");
+        }
+document.write("</table>");
+    </script>
+</body>
+</html>
