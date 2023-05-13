@@ -21,10 +21,69 @@
         document.write(arr1+"<br>");
         arr1.push("rahul");
         document.write(arr1+"<br>");
+        //Shift and unshift Same as pop and push but different is it do work on zero index\
 
-        
+        let arr2 = ["rahin","nikhil","rahul"];
+        document.write(arr2+"<br>");
+        arr2.shift();
+        document.write(arr2+"<br>");
+        arr2.unshift("Azim");
+        document.write(arr2+"<br>");
 
+
+        //concat and join function
+        let c = arr.concat(arr1,arr2)
+        document.write(c+"<br>");
+
+        let d = c.join(" ");
+        document.write(d+"<br>");
         
+        //slice can take a portion from array and can make a new array from it
+        //(-)value starts from -1 and not from 0
+        //in minus value the function goes left to right and in positive also it goes from left to right
+        let arr3 = ["amrita","bheem","rinkal","divyesh","Abdul"];
+        document.write(arr3+"<br>");
+        let e = arr3.slice(1,4);
+        document.write(e+"<br>");
+
+        //SpliceFunction() it is used to enter values in array in the between of an value, it is also can be used to delete
+        //of the array
+        let arr4 = ["sanjay","rahul","jaydeep","makvana","mihir","jaydeep"]
+        document.write(arr4+"<br>");
+        arr4.splice(1,1,"neha","karan");
+        document.write("After splicing the array 3 new array 4 is"+arr4+"<br>");
+
+        //isArray
+       
+        //indexOf() used to search element and its index
+
+        let f = arr4.indexOf("jaydeep",4);
+        document.write("The index of jaydeep is "+f+"<br>");
+        //lastIndexOf() Works the same just it starts from ending
+
+        //filter() it creates an array filled with all array elements that pass a test 
+        let ages = [20,10,4,19,25];
+        document.write("The ages before filter function:"+ages+"<br>");
+
+        let ages2 = ages.filter(checkAdult);
+        document.write("The ages after filter function:"+ages2+"<br>");
+
+        function checkAdult(age){
+            return age >=18;
+        }
+        //toString it converts an array to a string
+
+        //valueOf() this function is used to return the value in the array
+        //fill() this function fills an array with elements of a particular string or character
+        let arr6=["amrita","bheem","rinkal","divyesh","Abdul"];
+        arr6.fill("Azim");
+        document.write("The fill Function filled array 6 with azim letter "+"<br>"+arr6+"<br>");
+
+        //forEach() it is a loop runs for a array
+        arr4.forEach(function(value,index){
+            document.write(index + " : " + value + "<br>")
+        });
+
     </script>
 </body>
 </html>
