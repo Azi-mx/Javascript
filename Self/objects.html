@@ -9,7 +9,7 @@
 <body>
     <script>
         let a = {
-   //properties         
+   //properties and values        
             firstName:"Yahoo",
             lname:"baba",
             age:25,
@@ -34,7 +34,19 @@
         document.write(a.favMovies[0]);
         document.write(a.salary());
         document.write(a.fullname()+ "<br>");
-        document.write(a.living.city);
+        document.write(a.living.city+"<br>");
+
+
+
+        //second method for declaring object
+        let person = new Object();
+        person.firstName = 'Azim';
+        person.lastName = 'Memon';
+        person.age = 20;
+
+        document.write(person.firstName);
+        //you can also print it by other method
+        document.write(person['firstName']);
 
     </script>
 </body>

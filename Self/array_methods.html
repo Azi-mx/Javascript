@@ -84,6 +84,21 @@
             document.write(index + " : " + value + "<br>")
         });
 
+    //includes() this function finds the value in an array and returns true or false and it is a case senitive
+    let g = arr6.includes("rahul");
+    document.write("Includes function shows that the rahul value exist in array6 or not: "+ g +"<br>")
+
+    //some() checks if any of the elements in an array pass a test
+    //you can't use some() without function in it
+    let h = ages.some(checkAdult)
+    document.write("some function checks that which elemnts in the array passes the test: "+ h +"<br>")
+    
+
+    //every() this function is same as some function but difference is every element should pass the test only than
+    //it returns true 
+     h = ages.every(checkAdult)
+    document.write("some function checks that which elemnts in the array passes the test: "+ h +"<br>")
+    
     </script>
 </body>
 </html>
