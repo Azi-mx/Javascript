@@ -46,8 +46,32 @@
 
         document.write(person.firstName);
         //you can also print it by other method
-        document.write(person['firstName']);
+        document.write(person['firstName']+"<br>");
 
+       //array of objects in this objects are created in an array 
+       let students = [
+        {name : 'azim',age:20},
+        {
+            name:'vishal',age:  30
+        }
+       ] 
+       for(let b=0;b<students.length;b++){
+        document.write(students[b].name+" "+ students[b].age+"<br>" )
+       }
+
+
+       //for in loop it is for object 
+       let obj = {        
+            firstName:"Yahoo",
+            lname:"baba",
+            age:25,
+            email:"bagsariyaa@gmail.com"
+       };
+       for(let i in obj){
+         document.write(i +" : "+obj[i]+"<br>" )
+       }
+
+       
     </script>
 </body>
 </html>

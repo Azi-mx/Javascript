@@ -99,6 +99,17 @@
      h = ages.every(checkAdult)
     document.write("some function checks that which elemnts in the array passes the test: "+ h +"<br>")
     
+    //Map(); same as filter function but can also be used in object it creates new array
+    
+    let ages3;
+    ages3= ages.map(test);
+    document.write("The ages after map function:"+ages3+"<br>");
+    
+    function test(x){
+        return x*10;
+    }
+
+
     </script>
 </body>
 </html>
