@@ -27,6 +27,58 @@
     let myAzim1 = new Azim("Trimmer",2015);
     myAzim1.age(15);
     document.getElementById("demo").innerHTML = myAzim1.name+myAzim1.year;
+    //Inheritance
+
+    class employee{
+       
+        constructor(name,age,salary){
+            this.empname = name;
+            this.empage = age;
+            this.empsalary = salary;
+            console.log("Constructor : ");
+        }
+        info(){
+            document.write(`<h3>Employee Class</h3>
+                    Name : ${this.empname} <br>
+                    Age: ${this.empage} <br>
+                    Salary: ${this.empsalary} <br>`)
+            // console.log('Employee Name: '+ this.empname);
+        }
+    }
+    class manager extends employee{
+            //This class can use all the property and methos or everything of class employee.
+
+        /* constructor(name){
+        //     super();
+        //     console.log("Manager name: "+name)
+        // }
+        
+        // info(){
+            
+        //     console.log('Manager Name: '+ this.empname)
+        //     super.info();
+        // }
+        */
+        
+        info(){
+            let ta = 1000;
+            let pa = 300;
+            let totalsal = this.empsalary+ta + pa;
+            document.write(`<h3>Manager Class</h3>
+                    Name : ${this.empname} <br>
+                    Age: ${this.empage} <br>
+                    Salary: ${totalsal} <br>`)
+            // console.log('Employee Name: '+ this.empname);
+        }
+        }
+        class test extends manager{
+            //This class can use all the property and methos or everything of class manager and employee too.
+
+        }
+    let a  = new test('Azim Memon',25,20000);
+    // let b =  new employee('Vishal',22,12500);
+    a.info();
+    // b.info();
     </script>
 </body>
 </html>
