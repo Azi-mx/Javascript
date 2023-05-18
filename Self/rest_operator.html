@@ -9,7 +9,20 @@
 <body>
     <script>
         //rest operator   It came in ES6 version
-        
+        //It is used to take arguments or parameter according to the need. and by taking the needed variable the rest
+        //ones are made other array 
+        function sum(name,...args){
+            console.log();
+            document.write(`Hello ${name}`)
+            let sum = 0;
+            for(let i in args){ 
+                sum+=args[i];
+            }
+            document.write(sum + "<br>");
+        }
+
+        sum("Azim Memon",20,30,40);
+        sum("vishaal",20,30);
 
     </script>
 </body>
