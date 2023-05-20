@@ -7,12 +7,24 @@
     <title>Document</title>
 </head>
 <body>
+    <p id="demo" class="demo">First</p>
+    <p id="demo" class="demo">other</p>
+
     <script>
         //To Target DOM object following things are used
         //id - document.getElementById('')
         //class - document.getElementsByClassName('')
         //Tag Name - document.getElementsByTagName('')
         
+//targeting method
+        // let element = document.getElementById("demo");
+        // console.log(element)
+        let elements;
+        // elements = document.getElementsByClassName("demo")[0];
+        //  console.log(elements)
+
+ elements = document.getElementsByTagName("p")[0];
+         console.log(elements)
          
     </script>
 </body>

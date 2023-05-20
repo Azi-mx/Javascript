@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="header" class="abc">
+        <h1 id="header">Azim Memon</h1>
+    </div>
+    <div id="para">
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, beatae qui quisquam commodi expedita
+            ipsum
+            iusto rem! Error deserunt asperiores totam? Quaerat dolores tempore ipsa porro rem error, cumque alias
+            numquam
+            eligendi earum eum deleniti ut minus a totam maiores, in reiciendis vitae sed architecto. Illo dolor omnis
+            recusandae amet in labore voluptatibus officiis dolorem dolores, fugiat quisquam voluptate, quae vero
+            voluptatum
+            commodi ex at magnam iusto! Unde, corrupti asperiores incidunt eum nobis ipsum minima voluptatibus. Eligendi
+            inventore provident quod, iste vel libero voluptatum! Porro deleniti, at voluptate cum dignissimos,
+            consequatur
+            autem expedita officia voluptatem labore enim laudantium itaque voluptatibus.</p>
+    </div>
+    <script>
+        let element;
+        //These are all get methods
+        //This method is used to get the text in the para- innerText
+        //element = document.getElementById("para").innerText;
+
+        //This is used to get the html in the para - innerHTML
+        //element = document.getElementById("para").innerHTML;
+
+        //getAttribute - This is used to get attributes in a tag
+        //element = document.getElementById("para").getAttribute("id")
+
+
+
+        //getAttributeNode - This is used to get attributes in a tag
+        //element = document.getElementById("para").getAttributeNode("id")
+
+
+
+        //attributes returns the name or value of the tag's attributes
+       // element = document.getElementById("para").attributes[0].name;
+        // console.log(element)
+
+
+        //These are set Methods
+        //innerHTML can also be used to change the html of the tag
+        //  element = document.getElementById("header").innerHTML = "<h1>WOW</h1>";
+
+        //  //To set a new attribute with the help of id setAttribute is used
+        //  element = document.getElementById("header").setAttribute("style","border: 5px solid black");
+        // console.log(element)
+
+        element = document.getElementById("header").attributes[1].value = "xyz";
+        console.log(element)
+
+    </script>
+</body>
+
+</html>
