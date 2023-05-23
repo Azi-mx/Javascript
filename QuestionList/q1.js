@@ -38,10 +38,19 @@ let mess = a.filter(function(val){
 
 console.log("Array filtered to find number : " + mess);
 
+
+
+
 var pets = ['dog', 'chicken', 'cat', 'dog', 'chicken', 'chicken', 'rabbit'];
 let ValCount = pets.reduce(function(TV,CV){
-    TV[CV] = TV[CV] + 1 ||  1,TV
-})
+    if(!TV[CV]){
+        TV[CV]=1;
+    }
+    else{
+        TV[CV]++;
+    }
+    return TV;
+},{})
 console.log(ValCount);
 
 
