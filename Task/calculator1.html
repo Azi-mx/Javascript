@@ -1,35 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Simple Calculator</title>
+  <style>
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      max-width: 250px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    
+    .calculator input[type="text"] {
+      grid-column: 1 / -1;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 3px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+    
+    .calculator button:hover {
+      background-color: #d0d0d0;
+    }
+  </style>
 </head>
 <body>
-    
-   Enter numbers: <input type="text" name="num" id="num"><br>
-   <button type="button" name="btn1"  onclick="add()">Answer</button><br>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <button onclick="appendToResult('7')">7</button>
+    <button onclick="appendToResult('8')">8</button>
+    <button onclick="appendToResult('9')">9</button>
+    <button onclick="appendToResult('4')">4</button>
+    <button onclick="appendToResult('5')">5</button>
+    <button onclick="appendToResult('6')">6</button>
+    <button onclick="appendToResult('1')">1</button>
+    <button onclick="appendToResult('2')">2</button>
+    <button onclick="appendToResult('3')">3</button>
+    <button onclick="appendToResult('0')">0</button>
+    <button onclick="appendToResult('.')">.</button>
+    <button onclick="clearResult()">C</button>
+    <button onclick="evaluateResult()">=</button>
+    <button onclick="appendToResult('+')">+</button>
+    <button onclick="appendToResult('-')">-</button>
+    <button onclick="appendToResult('*')">*</button>
+    <button onclick="appendToResult('/')">/</button>
+  </div>
 
-   Answer is: <input type="text" name="ans" id="ans">
-
-   <button type="button" name="btn5"  onclick="cleardata()">Clear</button><br>
-   
-
-    <script>
-        function add(){
-        let a = document.getElementById('num').value;
-        let b = eval(a);
-        
-        document.getElementById('ans').value = b;
-        }
-     
-
-        function cleardata(){
-            document.getElementById('num').value = '';
-            document.getElementById('ans').value = '';
-        }
-
-    </script>
+  <script>
+   function appendToResult(value){
+    document.getElementById('result').value +=value;
+   }
+   function clearResult(){
+    document.getElementById('result').value = '';
+   }
+   function evaluateResult(){
+    let result = eval(document.getElementById('result').value);
+    document.getElementById('result').value = result;
+   }
+  </script>
 </body>
 </html>
