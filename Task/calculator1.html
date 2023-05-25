@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   Enter numbers: <input type="text" name="num" id="num"><br>
+   <button type="button" name="btn1"  onclick="add()">Answer</button><br>
+
+   Answer is: <input type="text" name="ans" id="ans">
+
+   <button type="button" name="btn5"  onclick="cleardata()">Clear</button><br>
+   
+
+    <script>
+        function add(){
+        let a = document.getElementById('num').value;
+        let b = eval(a);
+        
+        document.getElementById('ans').value = b;
+        }
+     
+
+        function cleardata(){
+            document.getElementById('num').value = '';
+            document.getElementById('ans').value = '';
+        }
+
+    </script>
+</body>
+</html>
