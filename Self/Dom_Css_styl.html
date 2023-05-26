@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .addedClassName{
+            background-color: aqua;
+        }
+        .xyz{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="myH1" style="border:1px solid black;">My Header</h1>
+
+    <p class="para">Click the button to get the style property of the H1 element.</p>
+    
+    <button onclick="myFunction()">Try it</button>
+    
+    <p id="demo"></p>
+    
+    <script>
+    function myFunction() {
+
+        //Here Style keyword is used to give style to the tag
+       document.querySelector("#myH1").style.backgroundColor = "tan";
+      var x = document.querySelector("#myH1").style.border;
+      document.getElementById("demo").innerHTML = x;
+    }
+    //We can also use className to get and set the class
+    //This is the method of adding class
+    document.querySelector("#myH1").className = "addedClassName xyz";
+    var elem = document.querySelector("#myH1").className;
+    console.log(elem);
+
+    //classList returns the name of classes in array just like querySelectorAll and we can add class using classList.add()
+    //
+    document.querySelector(".para").classList.add("xyz")//you can add multiple classes here
+    var elem= document.querySelector(".para").classList;
+    console.log(elem);
+    document.querySelector(".para").classList.remove("xyz")//you can remove multiple classes here
+    var elem= document.querySelector(".para").classList
+    console.log(elem);
+    
+    </script>
+
+</body>
+</html>

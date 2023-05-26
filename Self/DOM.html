@@ -10,6 +10,13 @@
     <p id="demo" class="demo">First</p>
     <p id="demo" class="demo">other</p>
 
+    <h1>The Document Object</h1>
+<h2>The querySelector() Method</h2>
+
+<p>Add a background color to the first element with class="example":</p>
+
+<p class="example">I am a paragraph.</p>
+<p class="example">I am a paragraph.</p> 
     <script>
         //To Target DOM object following things are used
         //id - document.getElementById('')
@@ -26,6 +33,13 @@
  elements = document.getElementsByTagName("p")[0];
          console.log(elements)
          
+
+//querySelector() using this we can target or select class and id also
+//querySelectorAll() = using this we can target or select class and id also but different is it works as
+//getElementsByClassName as it selects all we can use array to select as per our need.
+        document.querySelector("p.example").innerHTML = "Azim"
+        document.querySelectorAll("p.example")[2].innerHTML = "Azim"
+
     </script>
 </body>
 </html>
