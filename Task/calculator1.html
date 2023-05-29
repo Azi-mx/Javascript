@@ -60,6 +60,7 @@
     <button onclick="appendToResult('-')">-</button>
     <button onclick="appendToResult('*')">*</button>
     <button onclick="appendToResult('/')">/</button>
+    <button onclick="back()">_</button>  
   </div>
 
   <script>
@@ -72,6 +73,11 @@
    function evaluateResult(){
     let result = eval(document.getElementById('result').value);
     document.getElementById('result').value = result;
+   }
+   function back(){
+    let resultt = document.getElementById('result').value;
+    let another = resultt.slice(0,-1);
+    document.getElementById('result').value = another;
    }
   </script>
 </body>
