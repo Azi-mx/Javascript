@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="btn1" id="btn1" onclick="btndisp()">
+    <input type="button" value="btn2" id="btn2" onclick="btndisp2()">
+    <input type="button" value="btn3" id="btn3" onclick="btndisp3()">
+
+    <script>
+        //To Crate Event Cunstructor
+        function btndisp(){
+        const e1 = new Event('btndisp');
+        document.addEventListener('btndisp',()=>{
+            console.log("Event Fired")
+        })
+        document.dispatchEvent(e1);
+    }
+    
+    function btndisp2(){
+    const e2 = new CustomEvent('btndisp2',{
+        detail:{
+            name:"azim",
+            age:25,
+            fullName:(name,age)=>{
+                console.log(`Your name is ${name} and age is ${age}`);
+            }
+        }
+    });
+        document.addEventListener('btndisp2',(data)=>{
+            document.write(`${data.detail.fullName("Azim",24)}`);
+        })
+        document.dispatchEvent(e2);
+        } 
+        function btndisp3(){
+            const e3 = new CustomEvent('btn3',{
+                detail:{
+                    name:"vishal"
+                }
+            })
+            document.addEventListener('btn3',(data)=>{
+                console.log(`${data.detail.name}`);
+            })
+            document.dispatchEvent(e3);
+        }
+   </script>
+</body>
+</html>
