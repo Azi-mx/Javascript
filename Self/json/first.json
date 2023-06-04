@@ -1,0 +1,50 @@
+{
+    "employees": [
+        {
+            "firstName": "John",
+            "lastName": "Doe"
+        },
+        {
+            "firstName": "Anna",
+            "lastName": "Smith"
+        },
+        {
+            "firstName": "Peter",
+            "lastName": "Jones"
+        }
+    ]
+}
+
+  {
+    "students": [
+        {
+            "firstName": "john",
+            "lastName": "Weel"
+        },
+        {
+            "firstName": "Vishal",
+            "lastName": "Chavda"
+        },
+        {
+            "firstName": "rinkal",
+            "lastName": "soni"
+        }
+    ]
+}
+
+{
+    "karigarinfo":
+    {
+        "karigars":
+        [
+            {
+                "name":"sufiyan",
+                "age":25
+            },
+            {
+                "name":"ahmed",
+                "age":19
+            }
+        ]
+    }
+}
