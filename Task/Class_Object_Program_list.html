@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let members = {
+            username: "Azim-mx",
+            surname: "Memon",
+            age: "20",
+            salary: "20000",
+            qualification: [10, 12, "bca", "mca"],
+            display: function () {
+                document.write(`Here are the details of member 1: <br> ${this.username} <br>
+                surname:${this.surname} <br> Age: ${this.age}<br> Qualifications: ${this.qualification}
+                <br>`)
+            }
+        }
+
+        members.display();//This is the first method to access object property in js.
+        members.qualification.forEach(a => {
+            document.write(`<br>${a}<br>`);
+        });
+        let count = 0;
+        for (let a in members) {
+            ++count;
+        }
+        document.write(`The total keys in the members object are: ${count}`);
+
+
+
+
+
+        function students(n, ag, marks) {
+            let name = n;
+            let age = ag;
+            var mark = marks;
+            var avgMarks = function () {
+                var sum = 0;
+                mark.forEach(function (m) {
+                    sum += m;
+                })
+                return sum / mark.lenght;
+            }
+            
+            this.printDetails = function () {
+                console.log('Name: ' + name + ' Age: ' + age + ' Average Marks: ' + avgMarks());
+            }
+        }
+        var student1 = new students('Azim', 21, [70, 92, 84]);
+        student1.printDetails();
+
+
+    </script>
+</body>
+
+</html>
