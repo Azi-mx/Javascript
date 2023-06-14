@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form action="" name="myfrm">
+            <label for="">Name</label>
+            <input type="text" name="uname" id="uname">
+            <label for="">Age</label>
+            <input type="text" name="uage" id="uage">
+            <input type="button" value="Submit" onclick="insertData()">
+
+        </form>
+        <table border="1" id="userdata"></table>
+
+        <script>
+            function insertData(){
+                let name = document.myfrm.uname.value;
+                let age = document.myfrm.uage.value;
+                localStorage.setItem("username",name);
+                localStorage.setItem("age",age);
+                dispdata();
+            }
+            function dispdata(){
+                let name = localStorage.getItem("username");
+                let age = localStorage.getItem("age");
+                document.getElementById("userdata").innerHTML = "<tr><th>Name</th><th>Action</th></tr><tr><td>"+name+"</td></tr>"
+                "<tr><td>"+age+"</td></tr>";
+            }
+        </script>
+</body>
+</html>
