@@ -6,14 +6,45 @@
     <title>Document</title>
 </head>
 <style>
+    button:hover{
+        background-color: rgb(218, 130, 24);
+    }
     img{
         width: 200px;
         height: 200px;
     }
+    thead{
+        background-color: rgb(209, 188, 67);
+    }
+    th{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 100;
+    }
+    tbody{
+        background-color: rgb(223, 195, 36);
+    }
+    tbody tr td{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 100;
+        }
+    tbody tr td button{
+        border: 2px solid black;
+        border-radius: 50px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(15, 10, 17);
+        width: 200px;
+        height: 40px;
+        transition: all .9s;
+        font-weight: 600;
+    }
+    #center{
+        display: flex;
+        align-items: center;
+    }
 </style>
 <body>
     
-    <table border="2">
+    <table>
         <thead>
             <th>ID</th>
             <th>Title</th>
