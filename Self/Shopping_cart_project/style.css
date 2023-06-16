@@ -216,7 +216,7 @@ header .container{
     -o-border-radius: 5px;
 }
 .cart-item img{
-    width: 80px;
+    width: 120px;
 }
 .cart-item-info{
     text-align: center;
@@ -321,13 +321,15 @@ header .container{
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    width: 60%;
+    width: 80%;
+    height: 250px;
     margin: 0 auto;
     transition: var(--trans);
     -webkit-transition: var(--trans);
     -moz-transition: var(--trans);
     -ms-transition: var(--trans);
     -o-transition: var(--trans);
+    border-radius: 50px;
 }
 .product-img:hover img{
     opacity: 0.8;

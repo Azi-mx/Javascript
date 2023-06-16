@@ -3,25 +3,25 @@
         "name": "Armchair",
         "category": "Chair",
         "price": "50.25",
-        "imgSrc": "images/armchair.png"
+        "imgSrc": "Images/pexels-steve-johnson-923192.jpg"
     },
     {
         "name": "Bed",
         "category": "Bed",
         "price": "102.00",
-        "imgSrc": "images/bed.png"
+        "imgSrc": "Images/pexels-jean-van-der-meulen-1454806.jpg"
     },
     {
         "name": "Bench",
         "category": "Bench",
         "price": "15.00",
-        "imgSrc": "images/bench.png"
+        "imgSrc": "Images/pexels-pixabay-160934.jpg"
     },
     {
         "name": "Bunk bed",
         "category": "Bed",
         "price": "23.75",
-        "imgSrc": "images/bunk-bed.png"
+        "imgSrc": "Images/pexels-ketut-subiyanto-4907235.jpg"
     },
     {
         "name": "Cabinet",
