@@ -1,8 +1,8 @@
 let cartContainer = document.querySelector(".cart-container");
 let productList = document.querySelector(".product-list");
 let cartList = document.querySelector(".cart-list");
-let cartTotalValue = document.querySelector(".cart-total-value");
-let cartCountInfo = document.querySelector(".cart-item-info")
+let cartTotalValue = document.getElementById("cart-total-value");
+let cartCountInfo = document.getElementById("cart-count-info")
 let cartItemID = 1;
 
 eventListeners();
@@ -15,8 +15,14 @@ function eventListeners() {
     document.querySelector(".navbar-toggler").addEventListener("click", () => {
         document.querySelector(".navbar-collapse").classList.toggle("show-navbar");
     })
+
+    document.querySelector('#cart-btn').addEventListener("click",()=>{
+        cartContainer.classList.toggle("show-cart-container")
+    })
+
     productList.addEventListener("click", purchaseProduct)
     cartList.addEventListener('click', deleteProduct);
+
 }
     function purchaseProduct(e) {
     if(e.target.classList.contains("add-to-cart-btn")) {
@@ -42,7 +48,7 @@ function eventListeners() {
         cartItem.setAttribute('data-id', `${product.id}`);
         cartItem.innerHTML = `
             <img src = "${product.imgSrc}" alt = "product image">
-            <div class = "cart-count-info">
+            <div class = "cart-item-info">
                 <h3 class = "cart-item-name">${product.name}</h3>
                 <span class = "cart-item-category">${product.category}</span>
                 <span class = "cart-item-price">${product.price}</span>
