@@ -57,18 +57,18 @@
         "name": "Office chair",
         "category": "Chair",
         "price": "60.99",
-        "imgSrc": "images/office-chair.png"
+        "imgSrc": "Images/pexels-photo-4930018.jpeg"
     },
     {
         "name": "Scissors chair",
         "category": "Chair",
         "price": "69.20",
-        "imgSrc": "images/scissors-chair.png"
+        "imgSrc": "Images/free-photo-of-wooden-chair-and-vase-with-flowers-on-floor.jpeg"
     },
     {
         "name": "Sleeper sofa",
         "category": "Sofa",
         "price": "224.99",
-        "imgSrc": "images/sleeper-sofa.png"
+        "imgSrc": "Images/sleepingsofa.jpeg"
     }
 ]
