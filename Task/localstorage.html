@@ -4,31 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
         <form action="" name="myfrm">
             <label for="">Name</label>
             <input type="text" name="uname" id="uname">
+            <br>
+            <br>
             <label for="">Age</label>
             <input type="text" name="uage" id="uage">
-            <input type="button" value="Submit" onclick="insertData()">
+            <br>
+            <br>
+
+            <label for="">Salary</label>
+            <input type="text" name="salary" id="salary">
+            <br>
+            <br>
+
+            <label for="">Course</label>
+            <input type="text" name="crse" id="crse">
+            <br>
+            <br>
+
+            <input type="button" value="Submit" id="btnsub">
 
         </form>
-        <table border="1" id="userdata"></table>
+        <table border="1" id="userdata">
+
+        </table>
 
         <script>
-            function insertData(){
+            document.getElementById("btnsub").addEventListener("click",()=>{
+                {
                 let name = document.myfrm.uname.value;
                 let age = document.myfrm.uage.value;
-                localStorage.setItem("username",name);
-                localStorage.setItem("age",age);
+                let salary = document.myfrm.salary.value;
+                let crse = document.myfrm.crse.value;
+
+                let data = {};
+                let info = {
+                    name:name,
+                    age:age,
+                    salary:salary,
+                    course:crse
+                }
+                data.studentinfo = [info];
+                localStorage.setItem("StudentDetail",JSON.stringify(data));
                 dispdata();
             }
+            })
             function dispdata(){
-                let name = localStorage.getItem("username");
-                let age = localStorage.getItem("age");
-                document.getElementById("userdata").innerHTML = "<tr><th>Name</th><th>Action</th></tr><tr><td>"+name+"</td></tr>"
-                "<tr><td>"+age+"</td></tr>";
+                let dt = 
+                `<tr> 
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                </tr>`;
+                let info = JSON.parse(localStorage.getItem("StudentDetail"));
+
+                for(let i=0;i<info.studentinfo.length;i++){
+                    dt+=`<tr>
+                        <td>${info.studentinfo[i].name}</td>
+                        <td>${info.studentinfo[i].age}</td>
+                        <td>${info.studentinfo[i].salary}</td>
+                        <td>${info.studentinfo[i].crse}</td>
+                        <td><input type='button' name='btndel' id='btndel' value = 'delete'></td>
+                        </tr>`
+                }
+                document.getElementById("userdata").innerHTML = dt;
             }
         </script>
 </body>
