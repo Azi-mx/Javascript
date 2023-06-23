@@ -69,15 +69,17 @@
                 }
                 else {
                     studentDet.studentinfo.push(info);
+                    localStorage.setItem("StudentDetail", JSON.stringify(studentDet));
                 }
-                localStorage.setItem("StudentDetail", JSON.stringify(studentDet));
 
             }
             else {
                 data.studentinfo = [info];
                 localStorage.setItem("StudentDetail", JSON.stringify(data));
-                dispdata();
             }
+            document.myfrm.reset();
+            document.myfrm.userID.value = '';
+            display();
 
         })
         function dispdata() {
