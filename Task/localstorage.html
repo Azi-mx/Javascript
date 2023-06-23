@@ -1,81 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style1.css">
 </head>
+
 <body>
-        <form action="" name="myfrm">
-            <label for="">Name</label>
-            <input type="text" name="uname" id="uname">
-            <br>
-            <br>
-            <label for="">Age</label>
-            <input type="text" name="uage" id="uage">
-            <br>
-            <br>
+    <form action="" name="myfrm">
+        <input type="hidden" name="uid" id="uid">
+        <label for="">Name</label>
+        <input type="text" name="uname" id="uname">
+        <br>
+        <br>
+        <label for="">Age</label>
+        <input type="text" name="uage" id="uage">
+        <br>
+        <br>
 
-            <label for="">Salary</label>
-            <input type="text" name="salary" id="salary">
-            <br>
-            <br>
+        <label for="">Salary</label>
+        <input type="text" name="salary" id="salary">
+        <br>
+        <br>
 
-            <label for="">Course</label>
-            <input type="text" name="crse" id="crse">
-            <br>
-            <br>
+        <label for="">Course</label>
+        <input type="text" name="crse" id="crse">
+        <br>
+        <br>
 
-            <input type="button" value="Submit" id="btnsub">
+        <input type="button" value="Submit" id="btnsub">
+        <br>
+        <br>
 
-        </form>
-        <table border="1" id="userdata">
+    </form>
+    <table border="1" id="userdata">
 
-        </table>
+    </table>
 
-        <script>
-            document.getElementById("btnsub").addEventListener("click",()=>{
-                {
-                let name = document.myfrm.uname.value;
-                let age = document.myfrm.uage.value;
-                let salary = document.myfrm.salary.value;
-                let crse = document.myfrm.crse.value;
+    <script>
+        document.getElementById("btnsub").addEventListener("click", () => {
 
-                let data = {};
-                let info = {
-                    name:name,
-                    age:age,
-                    salary:salary,
-                    course:crse
+            let name = document.myfrm.uname.value;
+            let age = document.myfrm.uage.value;
+            let salary = document.myfrm.salary.value;
+            let crse = document.myfrm.crse.value;
+            let userID = document.myfrm.uid.value;
+            let data = {};
+            let info = {
+                name: name,
+                age: age,
+                salary: salary,
+                course: crse
+            }
+
+            let studentDet = JSON.parse(localStorage.getItem("StudentDetail"));
+            if (studentDet != null) {
+                if (userID != '') {
+                    for (let i = 0; i < studentDet.studentinfo.length; i++) {
+                        if (userID == i) {
+                            studentDet.studentinfo[i].name = name;
+                            studentDet.studentinfo[i].course = crse;
+                            studentDet.studentinfo[i].age = age;
+                            studentDet.studentinfo[i].salary = salary;
+                        }
+                    }
                 }
+                else {
+                    studentDet.studentinfo.push(info);
+                }
+                localStorage.setItem("StudentDetail", JSON.stringify(studentDet));
+
+            }
+            else {
                 data.studentinfo = [info];
-                localStorage.setItem("StudentDetail",JSON.stringify(data));
+                localStorage.setItem("StudentDetail", JSON.stringify(data));
                 dispdata();
             }
-            })
-            function dispdata(){
-                let dt = 
-                `<tr> 
+
+        })
+        function dispdata() {
+            let dt = '';
+            let info = JSON.parse(localStorage.getItem("StudentDetail"));
+            if (info != null && info.studentinfo.length > 0) {
+                dt =
+                    `<tr> 
                         <th>Name</th>
                         <th>Age</th>
                         <th>Course</th>
                         <th>Salary</th>
                         <th>Action</th>
                 </tr>`;
-                let info = JSON.parse(localStorage.getItem("StudentDetail"));
 
-                for(let i=0;i<info.studentinfo.length;i++){
-                    dt+=`<tr>
-                        <td>${info.studentinfo[i].name}</td>
-                        <td>${info.studentinfo[i].age}</td>
-                        <td>${info.studentinfo[i].salary}</td>
-                        <td>${info.studentinfo[i].crse}</td>
-                        <td><input type='button' name='btndel' id='btndel' value = 'delete'></td>
-                        </tr>`
+                for (let i = 0; i < info.studentinfo.length; i++) {
+
+                    dt += "<tr>";
+                    dt += "<td>" + info.studentinfo[i].name + "</td>";
+                    dt += "<td>" + info.studentinfo[i].age + "</td>";
+                    dt += "<td>" + info.studentinfo[i].course + "</td>";
+                    dt += "<td>" + info.studentinfo[i].salary + "</td>";
+                    dt += "<td><input type='button' name='btnedit' id='btnedit' value = 'Edit' onclick='getArray(" + i + ")'><input type='button' name='btndel' id='btndel' onclick='deleteArray(" + i + ")' value = 'delete'></td>"
+                    dt += "</tr>";
                 }
-                document.getElementById("userdata").innerHTML = dt;
             }
-        </script>
+            document.getElementById("userdata").innerHTML = dt;
+
+        }
+
+        function deleteArray(index) {
+            let detail = JSON.parse(localStorage.getItem("StudentDetail"));
+            detail.studentinfo.splice(index, 1);
+            localStorage.setItem("StudentDetail", JSON.stringify(detail));
+            dispdata();
+        }
+        function getArray(index) {
+            let detail = JSON.parse(localStorage.getItem("StudenDetail"));
+            if (detail != null) {
+                for (let i = 0; i < detail.studentinfo.length; i++) {
+                    if (index == i) {
+                        document.myfrm.uname.value = info.studentinfo[i].name;
+                        document.myfrm.uage.value = info.studentinfo[i].age;
+                        document.myfrm.salary.value = info.studentinfo[i].salary;
+                        document.myfrm.crse.value = info.studentinfo[i].crse;
+                        document.myfrm.uid.value = i;
+                    }
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,10 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 500px;
+    height: 500px;
+    margin:auto;
+    border: 4px solid black;
+}
+body input{
+    margin: auto;
+}
