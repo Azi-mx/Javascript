@@ -30,6 +30,16 @@
         <br>
         <br>
 
+
+        <label for="">Qualifications:</label>
+        <input type="checkbox" name="qual" id="qual" value="HSC"> HSC
+        <input type="checkbox" name="qual" id="qual1" value="Bachelor Degree"> Bachelor Degree
+        <input type="checkbox" name="qual" id="qual2" value="Post Graudate"> Post Graudate
+        <br>
+        <input type="checkbox" name="qual" id="qual3" value="Doctorate"> Doctorate
+        <br>
+        <br>
+
         <input type="button" value="Submit" id="btnsub">
         <br>
         <br>
@@ -47,16 +57,27 @@
             let salary = document.myfrm.salary.value;
             let crse = document.myfrm.crse.value;
             let userID = document.myfrm.uid.value;
+            let qualification = document.getElementsByName('qual');
+
+            let qual  = [];
+            for(let j=0;j<qualification.length;j++){
+                if(qualification[j].checked == true){
+                    qual.push(qualification[j].value);
+                }
+            }
+
             let data = {};
             let info = {
                 name: name,
                 age: age,
                 salary: salary,
-                course: crse
+                course: crse,
+                qualifications:qual
             }
 
             let studentDet = JSON.parse(localStorage.getItem("StudentDetail"));
             if (studentDet != null) {
+                //Here the details are edited and saved in the info object...!
                 if (userID != '') {
                     for (let i = 0; i < studentDet.studentinfo.length; i++) {
                         if (userID == i) {
@@ -64,8 +85,10 @@
                             studentDet.studentinfo[i].course = crse;
                             studentDet.studentinfo[i].age = age;
                             studentDet.studentinfo[i].salary = salary;
+                            studentDet.studentinfo[i].qualifications = qual;
                         }
                     }
+                    localStorage.setItem("StudentDetail", JSON.stringify(studentDet));
                 }
                 else {
                     studentDet.studentinfo.push(info);
@@ -78,8 +101,8 @@
                 localStorage.setItem("StudentDetail", JSON.stringify(data));
             }
             document.myfrm.reset();
-            document.myfrm.userID.value = '';
-            display();
+            document.myfrm.uid.value = '';
+            dispdata();
 
         })
         function dispdata() {
@@ -92,6 +115,7 @@
                         <th>Age</th>
                         <th>Course</th>
                         <th>Salary</th>
+                        <th>Qualifications</th>
                         <th>Action</th>
                 </tr>`;
 
@@ -102,11 +126,13 @@
                     dt += "<td>" + info.studentinfo[i].age + "</td>";
                     dt += "<td>" + info.studentinfo[i].course + "</td>";
                     dt += "<td>" + info.studentinfo[i].salary + "</td>";
-                    dt += "<td><input type='button' name='btnedit' id='btnedit' value = 'Edit' onclick='getArray(" + i + ")'><input type='button' name='btndel' id='btndel' onclick='deleteArray(" + i + ")' value = 'delete'></td>"
+                    dt += "<td>" + info.studentinfo[i].qualifications + "</td>";
+                    dt += "<td><input type='button' name='btnedit' id='btnedit' value = 'Edit' onclick='showdet(" + i + ")'><input type='button' name='btndel' id='btndel' onclick='deleteArray(" + i + ")' value = 'delete'></td>"
                     dt += "</tr>";
                 }
+                document.getElementById("userdata").innerHTML = dt;
             }
-            document.getElementById("userdata").innerHTML = dt;
+            
 
         }
 
@@ -116,20 +142,34 @@
             localStorage.setItem("StudentDetail", JSON.stringify(detail));
             dispdata();
         }
-        function getArray(index) {
-            let detail = JSON.parse(localStorage.getItem("StudenDetail"));
+
+
+
+        
+        function showdet(index) {
+            let detail = JSON.parse(localStorage.getItem("StudentDetail"));
             if (detail != null) {
                 for (let i = 0; i < detail.studentinfo.length; i++) {
                     if (index == i) {
-                        document.myfrm.uname.value = info.studentinfo[i].name;
-                        document.myfrm.uage.value = info.studentinfo[i].age;
-                        document.myfrm.salary.value = info.studentinfo[i].salary;
-                        document.myfrm.crse.value = info.studentinfo[i].crse;
+                        document.myfrm.uname.value = detail.studentinfo[i].name;
+                        document.myfrm.uage.value = detail.studentinfo[i].age;
+                        document.myfrm.salary.value = detail.studentinfo[i].salary;
+                        document.myfrm.crse.value = detail.studentinfo[i].course;
+
+                            let q = detail.studentinfo[i].qualifications;
+                            let q1 = document.getElementsByName('qual');
+
+                            for(let j=0;j<q1.length;j++){
+                                if(q.includes(q1[j].value)){
+                                    q1[j].checked = true;
+                                }
+                            }
                         document.myfrm.uid.value = i;
                     }
                 }
             }
         }
+        dispdata();
     </script>
 </body>
 
