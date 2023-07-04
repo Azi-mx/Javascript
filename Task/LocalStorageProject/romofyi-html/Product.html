@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Product Form</h3>
+    <form name="prdfrm" enctype="multipart/form-data">
+        <label for="">Category</label>
+        <select name="addsel" id="addsel">
+            <option value="">Select Category</option>
+        </select><br><br>
+        <label for="">Name:</label>
+        <input type="text" name="ProName" id="ProName">
+
+        <label for="">Price:</label>
+        <input type="text" name="ProPrice" id="ProPrice">
+
+        <label for="">Image</label>
+        <input type="file" name="ProImg" id="ProImg">
+
+        <input type="button" value="Save Product" name="SaveBtn" id="SaveBtn">
+    </form><br><br>
+    <img src="" id="ProdImg" width="400px" height="400px">
+
+    <script src="Product.js"></script>
+</body>
+</html>
