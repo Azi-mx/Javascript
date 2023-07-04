@@ -8,7 +8,7 @@ if (data != null && data.Category.length > 0) {
     document.getElementById("addsel").innerHTML = row;
 }
 
-document.getElementById("SaveBtn").addEventListener("click", function () {
+document.getElementById("ProdImg").addEventListener("change", function () {
 
     let ProdImg = document.getElementById("ProdImg");
 
@@ -16,11 +16,11 @@ document.getElementById("SaveBtn").addEventListener("click", function () {
         let read = new FileReader();
         read.readAsDataURL(ProdImg.files[0]);
         read.addEventListener("load", function () {
-            console.log("Image is " + read.result)
-            localStorage.setItem("ProductImage", read.result);
+            // console.log("Image is " + read.result)
+            localStorage.setItem("ProductImage",read.result);
             document.getElementById("ProdImg").src = read.result;
         })
     }else{
-        console.log('jk');
+        alert('jk');
     }
 })
