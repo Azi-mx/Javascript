@@ -38,6 +38,7 @@ document.getElementById("savecat").addEventListener("click", () => {
     data.Category = [catdata];
     localStorage.setItem("CategoryInfo",JSON.stringify(data));
     }
+    document.myfrm.catname.value = "";
     dispdata();
 })
 function dispdata() {
