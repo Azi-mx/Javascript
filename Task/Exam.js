@@ -37,8 +37,9 @@ document.getElementById("save").addEventListener("click", function () {
                 qualifications: qual
             }
             Empdet.Empinfo.push(info);
-            localStorage.setItem("EmpDetail", JSON.stringify(Empdet))
         }
+        localStorage.setItem("EmpDetail", JSON.stringify(Empdet))
+
     }
     else {
         let info = {
