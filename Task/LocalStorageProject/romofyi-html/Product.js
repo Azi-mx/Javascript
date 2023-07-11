@@ -68,8 +68,6 @@ document.getElementById("SaveBtn").addEventListener("click", function () {
             dispdata();
         }
 
-
-
     }
 
     else {
@@ -79,20 +77,18 @@ document.getElementById("SaveBtn").addEventListener("click", function () {
             PName: Name,
             PPrice: ProPrice,
             PImg: ProImg
-
         }
-
-
         ProductData.ProDetails = [details];
         localStorage.setItem("ProData", JSON.stringify(ProductData));
         dispdata();
     }
+    document.getElementById("prdfrm").reset();
 })
 
 
 function dispdata() {
     let data = JSON.parse(localStorage.getItem("ProData"));
-    if (data != null) {
+    if (data != null && data.ProDetails.length>0) {
         let tr = '';
         tr += `<tr>
                 <th>Category Name</th>
@@ -118,12 +114,12 @@ function dispdata() {
 }
 function delData(id) {
     let data = JSON.parse(localStorage.getItem("ProData"));
-    if (data != null && data.ProDetails.length > 0) {
+    if (data != null) {
         let id1 = id - 1;
         data.ProDetails.splice(id1, 1);
         let j = 1;
         for (let i = 0; i < data.ProDetails.length; i++) {
-            data.ProDetails[i].id = j
+            data.ProDetails[i].pid = j
             j++;
         }
         localStorage.setItem("ProData", JSON.stringify(data));
