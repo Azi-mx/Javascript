@@ -1,4 +1,4 @@
-dispdata()
+dispdata();
 document.getElementById("save").addEventListener("click", function () {
     let name = document.getElementById("EmpName").value;
     let salary = document.getElementById("EmpSal").value;
@@ -15,17 +15,20 @@ document.getElementById("save").addEventListener("click", function () {
 
     let data = {};
 
-    let Empdet = localStorage.getItem("EmpDetail");
+    let Empdet = JSON.parse(localStorage.getItem("EmpDetail"));
     if (Empdet != null) {
-        if (cid != null) {
+        if (cid != '') {
             for (let i = 0; i < Empdet.Empinfo.length; i++) {
                 if (cid == Empdet.Empinfo[i].id) {
                     Empdet.Empinfo[i].name = name;
                     Empdet.Empinfo[i].salary = salary;
                     Empdet.Empinfo[i].JobDes = jd;
-                    Empdet.Empinfo[i].qualifications = qualification;
+                    Empdet.Empinfo[i].qualifications = qual;
                 }
             }
+        localStorage.setItem("EmpDetail", JSON.stringify(Empdet))
+        document.getElementById("cid").value = ''
+
         }
         else {
             let len = Empdet.Empinfo.length;
@@ -37,8 +40,10 @@ document.getElementById("save").addEventListener("click", function () {
                 qualifications: qual
             }
             Empdet.Empinfo.push(info);
+            data = Empdet;
+        localStorage.setItem("EmpDetail", JSON.stringify(data))
+
         }
-        localStorage.setItem("EmpDetail", JSON.stringify(Empdet))
 
     }
     else {
@@ -87,8 +92,8 @@ function dispdata() {
 function DelData(id) {
     let data = JSON.parse(localStorage.getItem("EmpDetail"));
     if (data != null && data.Empinfo.length > 0) {
-        let id1 = id - 1;
-        data.Empinfo.splice(id1, 1);
+        let id1 = id-1;
+        data.Empinfo.splice(id1,1);
     
     let j = 1;
     for (let i = 0; i < data.Empinfo.length; i++) {
@@ -98,6 +103,7 @@ function DelData(id) {
     localStorage.setItem("EmpDetail", JSON.stringify(data));
     dispdata();
 }
+
 }
 function editData(id) {
     let data = JSON.parse(localStorage.getItem("EmpDetail"));
