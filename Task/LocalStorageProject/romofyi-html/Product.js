@@ -2,8 +2,7 @@ let data = JSON.parse(localStorage.getItem("CategoryInfo"));
 let row = '';
 if (data != null && data.Category.length > 0) {
     for (let i = 0; i < data.Category.length; i++) {
-        row += "<option value=" + data.Category[i].id + ">" + data.Category[i].name;
-        row += "</option>";
+        row += `<option value="${data.Category[i].name}">${data.Category[i].name}</option>`;
     }
     document.getElementById("addsel").innerHTML = row;
 }
