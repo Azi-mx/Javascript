@@ -20,8 +20,6 @@ document.getElementById("ProImg").addEventListener("change", function () {
             localStorage.setItem("ProductImage",read.result);
             document.getElementById("ProdImg").src = read.result;
         })
-    }else{
-        alert('jk');
     }
 })
 
