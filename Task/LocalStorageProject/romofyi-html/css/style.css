@@ -391,12 +391,13 @@ ul.right_icon li img {
 }
 
 .order {
-     padding-top: 2px;
+     padding-top: 7px;
+     margin-left: 22px;
      float: right;
      max-width: 120px;
      font-size: 14px !important;
      color: #fff !important;
-     height: 28px;
+     height: 38px;
      width: 100%;
      background-color: #183661;
      display: block;
