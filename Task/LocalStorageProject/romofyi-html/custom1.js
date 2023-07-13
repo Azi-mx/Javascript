@@ -17,6 +17,8 @@ let data2 = JSON.parse(localStorage.getItem("ProData"))
 
 let data3 = JSON.parse(localStorage.getItem("cartInfo"))
 let detail1 = {}
+let count = 1;
+
 DisplayCart()
 function AddToCart(id) {
     
@@ -59,7 +61,6 @@ function AddToCart(id) {
     }
     
 }
-
 function DisplayCart() {
     let data3 = JSON.parse(localStorage.getItem("cartInfo"))
     let tr = '';
@@ -80,43 +81,51 @@ function DisplayCart() {
             <td>${data3.cart[i].Name}</td>
             <td>$${data3.cart[i].Price}</td>
             <td><img id='img' src='${data3.cart[i].Image}'</td>
-            <td class='border border-end'><center class='border'><button class='border ' id='decrement-count' style='outline:none;'> - </button> &nbsp;<span id='total-count'></span> &nbsp;<button class='border' id='increment-count' style='outline:none;'> + </button></center></td>
-            <td><input type='button' value='Delete' onclick='delData(${data3.cart[i].id})'></td>
+            <td><input type='button' class="m-1" value='+' onclick='increase()'>${count}<input type='button' class="m-1" value='-' onclick='decrease()'></td>
+             <td><input type='button' value='Delete' onclick='delData(${data3.cart[i].id})'></td>
             </tr>`
         }
         document.getElementById("table").innerHTML = tr;
     }
 }
-
-
-// <td><input type='button' value='+' onclick='increase(${data3.cart[i].id})'>${count}<input type='button' value='-' onclick='decrease(${data3.cart[i].id})'></td>
-const totalCount = document.getElementById("total-count");
-
-// Variable to track count
-var count = 0;
-
-// Display initial count value
-totalCount.innerHTML = count;
-
-// Function to increment count
-const handleIncrement = () => {
+function increase(){
     count++;
-    totalCount.innerHTML = count;
-};
-
-// Function to decrement count
-const handleDecrement = () => {
+    DisplayCart()
+}
+function decrease(){
     count--;
-    totalCount.innerHTML = count;
-};
+    DisplayCart()
+}
 
-// Select increment and decrement buttons
-const incrementCount = document.getElementById("increment-count");
-const decrementCount = document.getElementById("decrement-count");
+// <td class='border border-end'><center class='border'><button class='border ' id='decrement-count' style='outline:none;'> - </button> &nbsp;<span id='total-count'></span> &nbsp;<button class='border' id='increment-count' style='outline:none;'> + </button></center></td>
+           
+// const totalCount = document.getElementById("total-count");
 
-// Add click event to buttons
-incrementCount.addEventListener("click", handleIncrement);
-decrementCount.addEventListener("click", handleDecrement);
+// // Variable to track count
+// var count = 0;
+
+// // Display initial count value
+// totalCount.innerHTML = count;
+
+// // Function to increment count
+// const handleIncrement = () => {
+//     count++;
+//     totalCount.innerHTML = count;
+// };
+
+// // Function to decrement count
+// const handleDecrement = () => {
+//     count--;
+//     totalCount.innerHTML = count;
+// };
+
+// // Select increment and decrement buttons
+// const incrementCount = document.getElementById("increment-count");
+// const decrementCount = document.getElementById("decrement-count");
+
+// // Add click event to buttons
+// incrementCount.addEventListener("click", handleIncrement);
+// decrementCount.addEventListener("click", handleDecrement);
 
 
 
