@@ -16,18 +16,33 @@ for (let i = 0; i < data1.ProDetails.length; i++) {
 let data2 = JSON.parse(localStorage.getItem("ProData"))
 
 let data3 = JSON.parse(localStorage.getItem("cartInfo"))
-
+let detail1 = {}
+DisplayCart()
 function AddToCart(id) {
-    let detail1 = {}
-    for (let i = 0; i < data2.ProDetails.length; i++) {
-        if (id == data2.ProDetails[i].pid) {
-            if (data3 != null) {
+    
+        if (data3 !=null) {
+            alert("if block")
+            for (let i = 0; i < data2.ProDetails.length; i++) {
+                
+            if (id == data2.ProDetails[i].pid) {
                 let len = data2.ProDetails.length;
                 let detail = {
-                    id:len+1,
+                    id: len + 1,
+                    CName: data2.ProDetails[i].catid,
+                    Name: data2.ProDetails[i].PName,
+                    Price: data2.ProDetails[i].PPrice,
+                    Image: data2.ProDetails[i].PImg
                 }
+                data3.cart.push(detail)
+                localStorage.setItem("cartInfo", JSON.stringify(data3))
             }
-            else {
+        }
+        DisplayCart()
+    }
+        else {
+            for (let i = 0; i < data2.ProDetails.length; i++) {
+            if(id == data2.ProDetails[i].pid) {
+                alert("else blovk")
                 let detail = {
                     id: data2.ProDetails[i].pid,
                     CName: data2.ProDetails[i].catid,
@@ -36,37 +51,73 @@ function AddToCart(id) {
                     Image: data2.ProDetails[i].PImg
                 }
                 detail1.cart = [detail];
-                localStorage.setItem("cartInfo", JSON.stringify(detail1))
             }
         }
+        
+        localStorage.setItem("cartInfo", JSON.stringify(detail1));
+        DisplayCart()
     }
-    DisplayCart();
+    
 }
+
 function DisplayCart() {
     let data3 = JSON.parse(localStorage.getItem("cartInfo"))
     let tr = '';
-    
-        if (data3 != null) {
-            tr += 
+
+    if (data3 != null) {
+        tr +=
             `<tr>
             <th>Category Name</th>
             <th>Product Name</th>
             <th>Product Price</th>
             <th>Product Image</th>
+            <th>Quantity</th>
             <th>Action</th>
             </tr>`
-        for(let i = 0; i < data3.cart.length; i++) {
-            tr+=`<tr>
+        for (let i = 0; i < data3.cart.length; i++) {
+            tr += `<tr>
             <td>${data3.cart[i].CName}</td>
             <td>${data3.cart[i].Name}</td>
-            <td>${data3.cart[i].Price}</td>
+            <td>$${data3.cart[i].Price}</td>
             <td><img id='img' src='${data3.cart[i].Image}'</td>
-            <td><input type='button' value='+' onclick='EditData(${data3.cart[i].id})'><input type='button' value='-' onclick='delData(${data3.cart[i].id})'></td>
+            <td class='border border-end'><center class='border'><button class='border ' id='decrement-count' style='outline:none;'> - </button> &nbsp;<span id='total-count'></span> &nbsp;<button class='border' id='increment-count' style='outline:none;'> + </button></center></td>
+            <td><input type='button' value='Delete' onclick='delData(${data3.cart[i].id})'></td>
             </tr>`
         }
         document.getElementById("table").innerHTML = tr;
-        }
     }
+}
+
+
+// <td><input type='button' value='+' onclick='increase(${data3.cart[i].id})'>${count}<input type='button' value='-' onclick='decrease(${data3.cart[i].id})'></td>
+const totalCount = document.getElementById("total-count");
+
+// Variable to track count
+var count = 0;
+
+// Display initial count value
+totalCount.innerHTML = count;
+
+// Function to increment count
+const handleIncrement = () => {
+    count++;
+    totalCount.innerHTML = count;
+};
+
+// Function to decrement count
+const handleDecrement = () => {
+    count--;
+    totalCount.innerHTML = count;
+};
+
+// Select increment and decrement buttons
+const incrementCount = document.getElementById("increment-count");
+const decrementCount = document.getElementById("decrement-count");
+
+// Add click event to buttons
+incrementCount.addEventListener("click", handleIncrement);
+decrementCount.addEventListener("click", handleDecrement);
+
 
 
 
