@@ -61,7 +61,7 @@ function DisplayCart() {
             <td>${data3.cart[i].Name}</td>
             <td>${data3.cart[i].Price}</td>
             <td><img id='img' src='${data3.cart[i].Image}'</td>
-            <td><input type='button' value='Edit' onclick='EditData(${data3.cart[i].id})'><input type='button' value='Delete' onclick='delData(${data3.cart[i].id})'></td>
+            <td><input type='button' value='+' onclick='EditData(${data3.cart[i].id})'><input type='button' value='-' onclick='delData(${data3.cart[i].id})'></td>
             </tr>`
         }
         document.getElementById("table").innerHTML = tr;

@@ -130,10 +130,10 @@ function EditData(id) {
     let data = JSON.parse(localStorage.getItem("ProData"));
     for (let i = 0; i < data.ProDetails.length; i++) {
         if (id == data.ProDetails[i].pid) {
-            document.getElementById("ProName").value = PName;
-            document.getElementById("ProPrice").value = PPrice;
-            document.getElementById("pimg").value = PImg;
-            document.getElementById("uid").value = pid;
+            document.getElementById("ProName").value = data.ProDetails[i].PName;
+            document.getElementById("ProPrice").value = data.ProDetails[i].PPrice;
+            document.getElementById("pimg").value = data.ProDetails[i].PImg;
+            document.getElementById("uid").value = data.ProDetails[i].pid;
         }
     }
 }
