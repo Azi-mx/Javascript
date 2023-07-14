@@ -76,7 +76,7 @@ function DisplayCart() {
             <th>Action</th>
             </tr>`
         for (let i = 0; i < data3.cart.length; i++) {
-            tr += `<tr>
+            tr += `<tr class="m-3">
             <td>${data3.cart[i].CName}</td>
             <td>${data3.cart[i].Name}</td>
             <td>$${data3.cart[i].Price}</td>
@@ -88,6 +88,20 @@ function DisplayCart() {
         document.getElementById("table").innerHTML = tr;
     }
 }
+        function delData(id){
+            let data = JSON.parse(localStorage.getItem("cartInfo"))
+            if(data !=null && data.cart.length>0){
+                let id1 = id-1;
+                data.cart.splice(id1,1);
+                let j=1;
+                for(let i=0;i<data.cart.length;i++){
+                    data.cart[i].id = j;
+                    j++;
+                }
+                localStorage.setItem("cartInfo",JSON.stringify(data));
+                DisplayCart();
+            }
+            }
 function increase(){
     count++;
     DisplayCart()

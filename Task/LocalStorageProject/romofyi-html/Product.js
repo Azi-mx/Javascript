@@ -58,6 +58,7 @@ document.getElementById("SaveBtn").addEventListener("click", function () {
                 catid: CategoryID,
                 pid: len + 1,
                 PName: Name,
+                quantity:1,
                 PPrice: ProPrice,
                 PImg: ProImg
             }
@@ -74,6 +75,7 @@ document.getElementById("SaveBtn").addEventListener("click", function () {
             catid: CategoryID,
             pid: 1,
             PName: Name,
+            quantity:1,
             PPrice: ProPrice,
             PImg: ProImg
         }
