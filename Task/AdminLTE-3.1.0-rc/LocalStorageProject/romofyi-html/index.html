@@ -122,7 +122,158 @@
                                </div>
                              </div>
                            </div></li>
-                        <a href="#" class="order">Order Now</a>
+                           
+
+                          <div class="modal fade" class="modal" id="exampleModal" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title fs-5" id="exampleModalLabel" style="font-weight:bold;">Product
+                                    Detail</h4>
+                                <input type="button" class="btn-close border-0 bg-color-none mt-2"
+                                    data-bs-dismiss="modal" aria-label="Close" value="X">
+                            </div>
+                            <div class="modal-body">
+
+                                <table id="addtocart-table" class="border" style="width: 100%;">
+
+                                </table>
+
+                            </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- login modal -->
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Login
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" class="modal" id="exampleModal2" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title fs-5" id="exampleModalLabel" style="font-weight:bold;">Login</h4>
+                                <input type="button" class="btn-close border-0 bg-color-none mt-2"
+                                    data-bs-dismiss="modal" aria-label="Close" value="X">
+                            </div>
+                            <div class="modal-body">
+
+                                <form action="" class="w-100" id="Lform" name="Lform">
+
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Email</span>
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Enter Email" aria-label="Email"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errorEmail" class="w-100 d-flex justify-content-start" name="errorEmail"></div>
+
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Password</span>
+                                        <input type="password" class="form-control" id="pass"
+                                            placeholder="Enter Password" aria-label="Password"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errorPassword" class="w-100 d-flex justify-content-start" name="errorPassword"></div>
+
+                                    <input type="button" class="btn btn-primary p-1 mb-3 w-100" value="Login" id="log">
+
+
+                                    <div class="s w-100 d-flex justify-content-center">Don't Have An Account ? &nbsp;
+
+                                        <button type="button" style="color: #D19C97;" class="btn p-0"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                            SIGN UP
+                                        </button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sign up modal -->
+
+                <!-- Modal -->
+                <div class="modal fade" class="modal" id="exampleModal3" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title fs-5" id="exampleModalLabel" style="font-weight:bold;">Sign Up</h4>
+                                <input type="button" class="btn-close border-0 bg-color-none mt-2"
+                                    data-bs-dismiss="modal" aria-label="Close" value="X">
+                            </div>
+                            <div class="modal-body">
+
+                                <form action="#" name="userform" onsubmit="return validateForm()">
+
+                    
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Username</span>
+                                        <input type="text" class="form-control" name="uname" id="uname"
+                                            placeholder="Enter Username" aria-label="Username"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errName" class="w-100 d-flex justify-content-start" name="errName"></div>
+                    
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Email</span>
+                                        <input type="text" class="form-control" name="email" id="email"
+                                            placeholder="Enter Email" aria-label="Email"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errEmail" class="w-100 d-flex justify-content-start" name="errEmail"></div>
+                    
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Password</span>
+                                        <input type="password" class="form-control" name="pass" id="pass"
+                                            placeholder="Enter Password" aria-label="Password"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errPass" class="w-100 d-flex justify-content-start" name="errPass"></div>
+                    
+                                    <div class="input-group mb-3" style="border: 2px solid rgb(234, 224, 224);">
+                                        <span class="input-group-text" id="basic-addon1">Confirm Password</span>
+                                        <input type="password" class="form-control" name="cpass" id="cpass"
+                                            placeholder="Enter Confirm Password" aria-label="Confirm Password"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div id="errcPass" class="w-100 d-flex justify-content-start" name="errcPass"></div>
+
+                                    <input type="submit" class="btn btn-primary p-1 mb-3 w-100" value="Signup" name="btn1"  onclick="changePage()">
+                    
+                            </form>
+
+                            </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
                      </ul>
                   </div>
                </div>
