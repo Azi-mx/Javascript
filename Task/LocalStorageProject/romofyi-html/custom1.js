@@ -61,7 +61,7 @@ function AddToCart(id) {
     }
     
 }
-function DisplayCart() {
+function DisplayCart() { 
     let data3 = JSON.parse(localStorage.getItem("cartInfo"))
     let tr = '';
 
